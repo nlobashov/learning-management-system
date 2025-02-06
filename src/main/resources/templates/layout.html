@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title th:text="${title} ?: ${@environment.getProperty('application.name')}">PAGE_NAME</title>
+
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+        <link rel="stylesheet" th:href="@{/css/style.css}">
+    </head>
+
+    <body data-bs-theme="dark">
+
+        <div th:text="${@environment.getProperty('app.strings.coursework.title')}"
+             class="container-fluid d-flex justify-content-center p-2 bg-black text-white-50">
+        </div>
+
+        <!-- навигация -->
+        <nav class="navbar navbar-expand-lg navbar-dark border-bottom border-top border-primary-subtle">
+            <div class="container">
+                <a class="navbar-brand border-end" href="#">
+                    <a class="navbar-brand" href="#">КУРСЫ</a>
+                </a>
+                <button aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler"
+                        data-bs-target="#navbarNav" data-bs-toggle="collapse" type="button">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a aria-current="page" class="nav-link active" href="#">Личный кабинет</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" th:href="@{/courses}">Курсы</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Преподаватели</a>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center">
+                        <i class="fas fa-bell text-white me-3"></i>
+                        <img alt="User Avatar" class="rounded-circle" height="40"
+                             src="https://storage.googleapis.com/a1aa/image/JJg5Q98CrJqkO5FZEaZVMtANQwmT7ltDffyC5zFcVpiWefuPB.jpg"
+                             width="40"/>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div th:insert="~{${page} :: content}" class="main container"></div>
+
+        <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+body {
+    background-color: #0d1117;
+}
+.navbar {
+    background-color: #388bfd1a;
+}
+.navbar-brand img {
+    height: 40px;
+}
+.nav-link
+{
+    color: white;
+}
+.content {
+    padding: 20px;
+}
+.main {
+    margin-top: 30px;
+}

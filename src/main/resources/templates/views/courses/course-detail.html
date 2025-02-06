@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div th:fragment="content" class="main container">
+        <div class="container content border border-secondary-subtle rounded-2" style="background-color: #151b23;">
+            <h1 th:text="${course.getName()}" class="text-white">Name</h1>
+            <p th:text="${course.getDescription()}" class="text-white">Description</p>
+        </div>
+        <!-- Блок лекции -->
+        <div th:each="lesson : ${lessons}" class="accordion container mt-3" style="padding: 0;">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button th:text="${lesson.getTheme()}"
+                            class="accordion-button"
+                            type="button"
+                            data-bs-toggle="collapse"
+                            th:data-bs-target="'#collapse' + ${lesson.getId()}"
+                            aria-expanded="true"
+                            th:aria-controls="'collapse' + ${lesson.getId()}">
+                    </button>
+                </h2>
+                <div th:id="'collapse' + ${lesson.getId()}"
+                     class="accordion-collapse collapse show"
+                     data-bs-parent="#accordionExample">
+
+                    <div th:text="${lesson.getDescription()}" class="accordion-body"></div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Конец блока -->
+    </div>
+</body>
+</html>

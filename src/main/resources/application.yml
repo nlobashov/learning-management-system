@@ -1,0 +1,29 @@
+#--------------------------------
+# Database && Hibernate params
+#--------------------------------
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/coursework
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+    hibernate:
+      ddl-auto: create-drop
+
+#--------------------------------
+# Other params
+#--------------------------------
+application:
+  name: learning-management-system
+
+app:
+  strings:
+    coursework:
+      title: "Курсовая работа: \"Разработка информационной системы для управления образовательными электронными курсами\""

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title></title>
+</head>
+
+<body>
+    <div th:each="course : ${courses}" th:fragment="content" class="main container">
+        <div class="container content border border-secondary-subtle rounded-2" style="background-color: #151b23;">
+            <h2 class="text-white">
+                <a th:text="${course.getName()}"
+                   th:href="@{/courses/{id}(id=${course.getId()})}"
+                   class="link-light link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">
+                </a>
+            </h2>
+            <p th:text="${course.getDescription()}" class="text-white">Description</p>
+            <a th:href="@{/courses/edit/{id}(id=${course.getId()})}" class="btn btn-success">Редактировать</a>
+            <a th:href="@{/courses/delete/{id}(id=${course.getId()})}" class="btn btn-danger ms-1">Удалить</a>
+        </div>
+    </div>
+</body>
+</html>
