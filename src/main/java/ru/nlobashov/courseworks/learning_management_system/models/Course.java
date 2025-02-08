@@ -3,6 +3,7 @@ package ru.nlobashov.courseworks.learning_management_system.models;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -23,6 +24,14 @@ public class Course
     @OneToMany(mappedBy = "course")
     private List<Lesson> lessons;
 
+    @Column(name = "date_created")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateCreated;
+
+    @Column(name = "date_modified")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateModified;
+
     public Course()
     {
     }
@@ -32,6 +41,9 @@ public class Course
         this.name = name;
         this.description = description;
         this.lessons = new ArrayList<>();
+        Date currentDate = new Date();
+        this.dateCreated = currentDate;
+        this.dateModified = currentDate;
     }
 
     public Long getId()
@@ -72,5 +84,15 @@ public class Course
     public void setLessons(List<Lesson> lessons)
     {
         this.lessons = lessons;
+    }
+
+    public Date getDateCreated()
+    {
+        return dateCreated;
+    }
+
+    public Date getDateModified()
+    {
+        return dateModified;
     }
 }

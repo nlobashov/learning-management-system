@@ -2,6 +2,8 @@ package ru.nlobashov.courseworks.learning_management_system.models;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 @Table(
     name = "lessons",
@@ -29,6 +31,14 @@ public class Lesson
     @Column(name = "lessonNumber")
     private int lessonNumber;
 
+    @Column(name = "date_created")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateCreated;
+
+    @Column(name = "date_modified")
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date dateModified;
+
     public Lesson()
     {
     }
@@ -39,6 +49,9 @@ public class Lesson
         this.description = description;
         this.course = course;
         this.lessonNumber = lessonNumber;
+        Date currentDate = new Date();
+        this.dateCreated = currentDate;
+        this.dateModified = currentDate;
     }
 
     public Long getId()
@@ -84,5 +97,25 @@ public class Lesson
     public void setLessonNumber(int lessonNumber)
     {
         this.lessonNumber = lessonNumber;
+    }
+
+    public Date getDateCreated()
+    {
+        return dateCreated;
+    }
+
+    public void setDateCreated(Date dateCreated)
+    {
+        this.dateCreated = dateCreated;
+    }
+
+    public Date getDateModified()
+    {
+        return dateModified;
+    }
+
+    public void setDateModified(Date dateModified)
+    {
+        this.dateModified = dateModified;
     }
 }
