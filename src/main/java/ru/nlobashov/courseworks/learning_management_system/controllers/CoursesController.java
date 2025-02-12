@@ -57,6 +57,15 @@ public class CoursesController
         return "redirect:/courses";
     }
 
+    @GetMapping("/edit/{id}")
+    public String showEditingForm(@PathVariable("id") Long id, Model model)
+    {
+        Course course = courseService.findById(id);
+        model.addAttribute("course", course);
+        model.addAttribute("view", getViewPath("create-course"));
+        return "layout.html";
+    }
+
     /**
      * Возвращает путь к представлению (View)
      * @param viewName название файла представления (View)
