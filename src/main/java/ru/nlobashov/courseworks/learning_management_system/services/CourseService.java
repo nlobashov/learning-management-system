@@ -42,9 +42,8 @@ public class CourseService
     }
 
     @Transactional
-    public void createCourse(String name, String description)
+    public void createCourse(Course course)
     {
-        Course course = new Course(name, description);
         courseRepository.save(course);
     }
 }
