@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title></title>
+</head>
+
+<body>
+<div th:fragment="content" class="main container">
+    <form th:method="POST" th:action="@{/courses}" th:object="${course}">
+        <label for="course-name">Название курса</label>
+        <input type="text" th:field="*{name}" id="course-name" placeholder="Название">
+
+        <label for="course-description">Описание курса</label>
+        <input type="text" th:field="*{description}" id="course-description" placeholder="Описание">
+
+        <input type="submit" value="Сохранить">
+    </form>
+</div>
+</body>
+</html>

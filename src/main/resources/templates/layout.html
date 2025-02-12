@@ -34,7 +34,7 @@
                             <a class="nav-link" th:href="@{/courses}">Курсы</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Преподаватели</a>
+                            <a class="nav-link" th:href="@{/courses/create}">Создать курс</a>
                         </li>
                     </ul>
                     <div class="d-flex align-items-center">
@@ -47,7 +47,7 @@
             </div>
         </nav>
 
-        <div th:insert="~{${page} :: content}" class="main container"></div>
+        <div th:insert="~{${view} :: content}" class="main container"></div>
 
         <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
     </body>
